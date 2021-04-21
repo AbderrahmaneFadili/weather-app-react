@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
+import Header from "./components/layout/Header/Header";
 import GlobalStyle from "./themes/GlobalStyle";
 import theme from "./themes/theme";
 
@@ -8,7 +9,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyle />
-        <h1>Weather App</h1>
+        <Header />
       </>
     </ThemeProvider>
   );

@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 1000px;
+  max-width: 80%;
   margin: 0 auto;
 `;
 
