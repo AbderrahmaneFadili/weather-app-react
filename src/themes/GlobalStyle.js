@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
           --font:${({ theme }) => theme.font};
           --light-gray:${({ theme }) => theme.lightGray};
           --orange:${({ theme }) => theme.orange};
+          --orange-hover:${({ theme }) => theme.orangeHover};
           --white:${({ theme }) => theme.white};
           --gray:${({ theme }) => theme.gray};
           --dark-gray:${({ theme }) => theme.darkGray};

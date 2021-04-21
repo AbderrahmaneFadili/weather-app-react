@@ -2,5 +2,16 @@ import styled from "styled-components";
 
 export const LoactionsWrapper = styled.div`
   width: 19%;
-  background: #999;
+  padding: 1rem;
+  background: var(--light-gray);
+`;
+
+export const Title = styled.h1`
+  color: var(--dark-gray);
+  margin-bottom: 2rem;
+`;
+
+export const LoactionsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

@@ -1,7 +1,11 @@
 import React from "react";
-import { LocationWrapper } from "./Location.styles";
-const Location = () => {
-  return <LocationWrapper>Location</LocationWrapper>;
+import { LocationWrapper, LoactionButton } from "./Location.styles";
+const Location = ({ locationName }) => {
+  return (
+    <>
+      <LoactionButton>{locationName}</LoactionButton>
+    </>
+  );
 };
 
 export default Location;

@@ -1,8 +1,18 @@
 import React from "react";
-import { LoactionsWrapper } from "./Locations.styles";
+import Location from "../Location/Location";
+import {
+  LoactionsWrapper,
+  Title,
+  LoactionsContainer,
+} from "./Locations.styles";
 
 const Loactions = () => {
-  return <LoactionsWrapper></LoactionsWrapper>;
+  return (
+    <LoactionsWrapper>
+      <Title>Locations</Title>
+      <LoactionsContainer>Empty</LoactionsContainer>
+    </LoactionsWrapper>
+  );
 };
 
 export default Loactions;
