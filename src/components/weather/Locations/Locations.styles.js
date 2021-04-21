@@ -4,6 +4,7 @@ export const LoactionsWrapper = styled.div`
   width: 19%;
   padding: 1rem;
   background: var(--light-gray);
+  color: var(--dark-gray);
 `;
 
 export const Title = styled.h1`
