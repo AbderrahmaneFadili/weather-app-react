@@ -1,11 +1,13 @@
 import styled from "styled-components";
+import imageBgSM from "../../../assets/images/header-small.jpg";
+import imageBgLG from "../../../assets/images/header-large.jpg";
 
 export const HeaderContiner = styled.header`
   padding: 3rem 0;
-  background-image: ${({ imageBg }) => `url(${imageBg})`};
+  background-image: url(${imageBgSM});
   background-repeat: no-repeat;
   background-size: 100%;
-  background-position: top left;
+  background-position: center;
   height: 24vh;
   position: relative;
 
@@ -17,6 +19,10 @@ export const HeaderContiner = styled.header`
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.2);
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url(${imageBgLG});
   }
 `;
 

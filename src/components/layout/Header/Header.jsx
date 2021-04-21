@@ -3,9 +3,7 @@ import { HeaderContiner, HeaderHeading } from "./Header.styles";
 import { Container } from "../../../themes/GlobalStyle";
 const Header = () => {
   return (
-    <HeaderContiner
-      imageBg={`https://source.unsplash.com/random/800x600?weather`}
-    >
+    <HeaderContiner>
       <Container>
         <HeaderHeading>My Weather</HeaderHeading>
       </Container>
