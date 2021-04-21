@@ -1,11 +1,11 @@
 import React from "react";
-import { FooterContainer } from "./Footer.styles";
+import { FooterContainer, Copy } from "./Footer.styles";
 import { Container } from "../../../themes/GlobalStyle";
 const Footer = () => {
   return (
     <FooterContainer>
       <Container>
-        <p>My Weather &copy; {new Date().getFullYear()}</p>
+        <Copy>My Weather &copy; {new Date().getFullYear()}</Copy>
       </Container>
     </FooterContainer>
   );
