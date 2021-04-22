@@ -9,7 +9,7 @@ const Loactions = () => {
   return (
     <LoactionsWrapper>
       <Title>Locations</Title>
-      <LoactionsContainer>Empty</LoactionsContainer>
+      <LoactionsContainer>No Loactio</LoactionsContainer>
     </LoactionsWrapper>
   );
 };

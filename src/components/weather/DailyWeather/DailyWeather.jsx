@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../layout/Loader/Loader";
 import DailyWeatherCard from "../DailyWeatherCard/DailyWeatherCard";
@@ -31,6 +31,7 @@ const DailyWeather = () => {
     <DailyWeatherWrapper>
       {loading && <Loader />}
       {dailyWeather &&
+        !loading &&
         dailyWeather.map((dw, i) => (
           <DailyWeatherCard {...dw} key={i.toString()} />
         ))}

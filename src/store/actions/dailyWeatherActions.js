@@ -20,9 +20,6 @@ const getDailyWeatherFail = (payload) => ({
 
 export const getDailyWeatherByCoords = (lat, lon) => (dispatch) => {
   dispatch(getDailyWeatherStart());
-  console.log(
-    `${dailyWeatherUrl}&lat=${lat}&lon=${lon}&exclude=hourly,minutely`,
-  );
   fetch(`${dailyWeatherUrl}&lat=${lat}&lon=${lon}&exclude=hourly,minutely`)
     .then((res) => res.json())
     .then((data) => dispatch(getDailyWeatherSucc(data)))

@@ -17,7 +17,7 @@ const DailyWeatherCard = ({ dt, weather, temp: { min, max } }) => {
         src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
       />
       <DailyWeatherMinMax>
-        {Math.floor(min)} / {Math.floor(max)}
+        {Math.floor(min)} °C / {Math.floor(max)} °C
       </DailyWeatherMinMax>
     </DailyWeatherCardWrapper>
   );
