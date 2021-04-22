@@ -39,7 +39,6 @@ const WeatherCard = () => {
     );
   }, []);
 
-  console.log(loading, currentWeather, error);
   return (
     <WeatherCardWrapper>
       {loading && <Loader />}
