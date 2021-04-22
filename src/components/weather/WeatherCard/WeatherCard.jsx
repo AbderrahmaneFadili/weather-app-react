@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   WeatherCardWrapper,
   WeatherDate,
@@ -11,35 +12,71 @@ import {
   Value,
 } from "./WeatherCard.styles";
 
+import { getCurrentWeatherByCoord } from "../../../store/actions/currentWeatherActions";
+import moment from "moment";
+import Loader from "../../layout/Loader/Loader";
+
 const WeatherCard = () => {
+  //selector for selecting data from reducers
+  const { loading, currentWeather, error } = useSelector(
+    (state) => state.currentWeatherReducer,
+  );
+
+  //disptach for dispatching action to reducer
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    //get the current location position
+    window.navigator.geolocation.getCurrentPosition(
+      (s) => {
+        //dispatch the action
+        dispatch(
+          getCurrentWeatherByCoord(s.coords.latitude, s.coords.longitude),
+        );
+      },
+      null,
+      { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 },
+    );
+  }, []);
+
+  console.log(loading, currentWeather, error);
   return (
     <WeatherCardWrapper>
-      <WeatherDate>10:20 am, Apr 21</WeatherDate>
-      <TemperatureContainer>
-        <TemperatureImage src={"http://openweathermap.org/img/wn/01d@2x.png"} />
-        <Temperature>19°C</Temperature>
-      </TemperatureContainer>
-      <WeatherInfo>
-        <WeatherInfoItem>
-          <Info>Feels Like :</Info>
-          <Value>18°C</Value>
-        </WeatherInfoItem>
+      {loading && <Loader />}
+      {currentWeather && (
+        <>
+          <WeatherDate>
+            {moment(new Date(currentWeather.dt * 1000)).format("MMM D, YY")}
+          </WeatherDate>
+          <TemperatureContainer>
+            <TemperatureImage
+              src={"http://openweathermap.org/img/wn/01d@2x.png"}
+            />
+            <Temperature>{Math.floor(currentWeather.main.temp)}°C</Temperature>
+          </TemperatureContainer>
+          <WeatherInfo>
+            <WeatherInfoItem>
+              <Info>Feels Like :</Info>
+              <Value>{Math.floor(currentWeather.main.feels_like)}°C</Value>
+            </WeatherInfoItem>
 
-        <WeatherInfoItem>
-          <Info>Humidity :</Info>
-          <Value>60%</Value>
-        </WeatherInfoItem>
+            <WeatherInfoItem>
+              <Info>Humidity :</Info>
+              <Value>{currentWeather.main.humidity}%</Value>
+            </WeatherInfoItem>
 
-        <WeatherInfoItem>
-          <Info>Visibility :</Info>
-          <Value>8 km</Value>
-        </WeatherInfoItem>
+            <WeatherInfoItem>
+              <Info>Visibility :</Info>
+              <Value>{(currentWeather.visibility / 1000).toFixed(1)}km</Value>
+            </WeatherInfoItem>
 
-        <WeatherInfoItem>
-          <Info>Pressure :</Info>
-          <Value>1019 hPa</Value>
-        </WeatherInfoItem>
-      </WeatherInfo>
+            <WeatherInfoItem>
+              <Info>Pressure :</Info>
+              <Value>{currentWeather.main.pressure} hPa</Value>
+            </WeatherInfoItem>
+          </WeatherInfo>
+        </>
+      )}
     </WeatherCardWrapper>
   );
 };

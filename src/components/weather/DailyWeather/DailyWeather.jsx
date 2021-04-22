@@ -48,8 +48,8 @@ const daily = [
 const DailyWeather = () => {
   return (
     <DailyWeatherWrapper>
-      {daily.map((d) => (
-        <DailyWeatherCard {...d} />
+      {daily.map((d, i) => (
+        <DailyWeatherCard key={i.toString()} {...d} />
       ))}
     </DailyWeatherWrapper>
   );
