@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { WeatherMapWrapper } from "./WeatherMap.styles";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import L from "leaflet";
-import { useDispatch, useSelector } from "react-redux";
-import { getCurrentWeatherByCoord } from "../../../store/actions/currentWeatherActions";
+import { useSelector } from "react-redux";
 import Loader from "../../layout/Loader/Loader";
 
 const WeatherMap = () => {
@@ -18,9 +17,6 @@ const WeatherMap = () => {
   const { loading, currentWeather, error } = useSelector(
     (state) => state.currentWeatherReducer,
   );
-
-  //disptach for dispatching action to reducer
-  const dispatch = useDispatch();
 
   console.log(loading, currentWeather, error);
   return (

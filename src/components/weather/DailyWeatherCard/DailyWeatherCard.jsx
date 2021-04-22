@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 import {
   DailyWeatherCardWrapper,
@@ -6,12 +7,18 @@ import {
   DailyWeatherMinMax,
 } from "./DailyWeatherCard.styles";
 
-const DailyWeatherCard = ({ date, icon, minMax }) => {
+const DailyWeatherCard = ({ dt, weather, temp: { min, max } }) => {
   return (
     <DailyWeatherCardWrapper>
-      <DailyWeatherDate>{date}</DailyWeatherDate>
-      <DailyWeatherIcon src={icon} />
-      <DailyWeatherMinMax>{minMax}</DailyWeatherMinMax>
+      <DailyWeatherDate>
+        {moment(new Date(dt * 1000)).format("MMM D, YY")}
+      </DailyWeatherDate>
+      <DailyWeatherIcon
+        src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
+      />
+      <DailyWeatherMinMax>
+        {Math.floor(min)} / {Math.floor(max)}
+      </DailyWeatherMinMax>
     </DailyWeatherCardWrapper>
   );
 };

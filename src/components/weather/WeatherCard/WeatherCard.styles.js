@@ -11,6 +11,14 @@ export const WeatherDate = styled.span`
   font-weight: 700;
 `;
 
+export const Name = styled.span`
+  color: var(--orange);
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: block;
+  margin: 0.7rem 0;
+`;
+
 export const TemperatureContainer = styled.div`
   display: flex;
   align-items: center;

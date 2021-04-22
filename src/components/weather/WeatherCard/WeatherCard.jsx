@@ -10,6 +10,7 @@ import {
   WeatherInfoItem,
   Info,
   Value,
+  Name,
 } from "./WeatherCard.styles";
 
 import { getCurrentWeatherByCoord } from "../../../store/actions/currentWeatherActions";
@@ -18,7 +19,7 @@ import Loader from "../../layout/Loader/Loader";
 
 const WeatherCard = () => {
   //selector for selecting data from reducers
-  const { loading, currentWeather, error } = useSelector(
+  const { loading, currentWeather } = useSelector(
     (state) => state.currentWeatherReducer,
   );
 
@@ -47,9 +48,10 @@ const WeatherCard = () => {
           <WeatherDate>
             {moment(new Date(currentWeather.dt * 1000)).format("MMM D, YY")}
           </WeatherDate>
+          <Name>{currentWeather.name}</Name>
           <TemperatureContainer>
             <TemperatureImage
-              src={"http://openweathermap.org/img/wn/01d@2x.png"}
+              src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`}
             />
             <Temperature>{Math.floor(currentWeather.main.temp)}°C</Temperature>
           </TemperatureContainer>
