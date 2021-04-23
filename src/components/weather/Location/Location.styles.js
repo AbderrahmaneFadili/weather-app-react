@@ -1,21 +1,33 @@
 import styled from "styled-components";
+import { FaTrashAlt } from "react-icons/fa";
 
-export const LoactionButton = styled.button`
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-  padding: 1rem 0.8rem;
-  font-size: 1rem;
-  font-family: var(--font);
+export const LoactionItem = styled.li`
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0.9rem;
+  background: var(--dark-gray);
+  color: var(--white);
+  align-items: center;
+`;
+
+export const LocationName = styled.span`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 1rem;
-  color: var(--white);
-  background: var(--orange);
-  transition: 0.4s all;
+  cursor: pointer;
 
   &:hover {
-    background-color: var(--orange-hover);
+    text-decoration: underline;
+  }
+`;
+
+export const DeleteIcon = styled(FaTrashAlt)`
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: 0.4s;
+
+  &:active {
+    transform: scale(1.5);
   }
 `;

@@ -23,7 +23,7 @@ const DailyWeather = () => {
         ),
       );
     }
-  }, [currentWeather]);
+  }, [currentWeather, dispatch]);
 
   const { dailyWeather } = dailyWeahterResult;
 
