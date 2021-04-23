@@ -3,6 +3,7 @@ import { SignUpWrapper, Title } from "./SignUp.styles";
 import Form from "../Form/Form";
 import FormInput from "../FormInput/FormInput";
 import SubmitButton from "../SubmitButton/SubmitButton";
+import Error from "../Error/Error";
 
 const SignUp = () => {
   return (
