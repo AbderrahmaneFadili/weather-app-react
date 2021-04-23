@@ -4,12 +4,14 @@ import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import { firestoreReducer } from "redux-firestore";
 import { firebaseReducer, getFirebase } from "react-redux-firebase";
+import authReducer from "./reducers/authReducer";
 
 const rootReducer = combineReducers({
   currentWeatherReducer,
   dailyWeahterReducer,
   firebase: firebaseReducer,
   firestore: firestoreReducer,
+  authData: authReducer,
 });
 
 const store = createStore(
