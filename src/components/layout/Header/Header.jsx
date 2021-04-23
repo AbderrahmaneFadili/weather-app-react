@@ -1,12 +1,21 @@
 import React from "react";
-import { HeaderContiner, HeaderHeading } from "./Header.styles";
-import { Container } from "../../../themes/GlobalStyle";
+import {
+  HeaderContiner,
+  HeaderHeading,
+  Logo,
+  HeaderWrapper,
+} from "./Header.styles";
+import Navbar from "../Navbar/Navbar";
+
 const Header = () => {
   return (
     <HeaderContiner>
-      <Container>
-        <HeaderHeading>My Weather</HeaderHeading>
-      </Container>
+      <HeaderWrapper>
+        <Logo to="/">
+          <HeaderHeading>My Weather</HeaderHeading>
+        </Logo>
+        <Navbar />
+      </HeaderWrapper>
     </HeaderContiner>
   );
 };

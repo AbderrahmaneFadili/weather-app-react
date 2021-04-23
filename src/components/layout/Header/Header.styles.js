@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import imageBgSM from "../../../assets/images/header-small.jpg";
 import imageBgLG from "../../../assets/images/header-large.jpg";
+import { Link } from "react-router-dom";
+import { Container } from "../../../themes/GlobalStyle";
 
 export const HeaderContiner = styled.header`
   padding: 3rem 0;
@@ -26,8 +28,16 @@ export const HeaderContiner = styled.header`
   }
 `;
 
+export const Logo = styled(Link)`
+  text-decoration: none;
+`;
+
 export const HeaderHeading = styled.h1`
   color: var(--white);
   position: relative;
   z-index: 22;
+`;
+
+export const HeaderWrapper = styled(Container)`
+  align-items: center;
 `;
