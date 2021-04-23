@@ -5,6 +5,7 @@ const theme = {
   orangeHover: "#ed9a82",
   white: "#FFFFFF",
   darkGray: "#48484A",
+  darkGrayHover: "#85858f",
   gray: "#F1F2F1",
 };
 export default theme;

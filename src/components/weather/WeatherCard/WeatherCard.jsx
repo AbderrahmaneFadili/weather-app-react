@@ -46,7 +46,9 @@ const WeatherCard = () => {
       {currentWeather && (
         <>
           <WeatherDate>
-            {moment(new Date(currentWeather.dt * 1000)).format("MMM D, YY")}
+            {moment(new Date(currentWeather.dt * 1000)).format(
+              "MMM D ,YY hh:mm a",
+            )}
           </WeatherDate>
           <Name>{currentWeather.name}</Name>
           <TemperatureContainer>
