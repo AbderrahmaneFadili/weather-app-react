@@ -6,14 +6,12 @@ import { DailyWeatherWrapper } from "./DailyWeather.styles";
 import { getDailyWeatherByCoords } from "../../../store/actions/dailyWeatherActions";
 
 const DailyWeather = () => {
-  const { currentWeatherResult, dailyWeahterResult } = useSelector((state) => ({
-    currentWeatherResult: state.currentWeatherReducer,
-    dailyWeahterResult: state.dailyWeahterReducer,
-  }));
-
   const dispatch = useDispatch();
-  const { currentWeather, loading, error } = currentWeatherResult;
-  const { dailyWeather } = dailyWeahterResult;
+  const currentWeatherResult = useSelector(
+    (state) => state.currentWeatherReducer,
+  );
+
+  const { currentWeather } = currentWeatherResult;
 
   useEffect(() => {
     if (currentWeather && currentWeather.coord !== undefined) {
@@ -26,13 +24,16 @@ const DailyWeather = () => {
     }
   }, [currentWeather]);
 
-  console.log(dailyWeather);
+  const dailyWeahterResult = useSelector((state) => state.dailyWeahterReducer);
+  const { dailyWeather, loading } = dailyWeahterResult;
+
+  console.log(dailyWeather, currentWeather);
   return (
     <DailyWeatherWrapper>
       {loading && <Loader />}
       {dailyWeather &&
         currentWeather &&
-        !loading &&
+        currentWeather.message === undefined &&
         dailyWeather.map((dw, i) => (
           <DailyWeatherCard {...dw} key={i.toString()} />
         ))}

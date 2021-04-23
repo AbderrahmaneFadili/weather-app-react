@@ -16,8 +16,9 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyle />
-          {/* Routing Config */}
+
           <Header />
+          {/* Routing Config */}
           <Switch>
             <Route component={SignIn} path="/signin" />
             <Route component={SignUp} path="/signup" />

@@ -37,7 +37,6 @@ export const getCurrentWeatherByCity = (city) => (dispatch) => {
     .then((res) => res.json())
     .then((data) => {
       dispatch(getCurrentWeatherSucc(data));
-      dispatch(addLocation(data.name));
     })
     .catch((err) => dispatch(getCurrentWeatherFail(err)));
 };

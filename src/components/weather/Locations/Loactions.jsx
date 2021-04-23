@@ -23,7 +23,6 @@ const Loactions = () => {
     <LoactionsWrapper>
       <Title>Locations</Title>
       <LoactionsContainer>
-        {!locations && "No Location"}
         {locations &&
           locations.map((l, i) => (
             <Location

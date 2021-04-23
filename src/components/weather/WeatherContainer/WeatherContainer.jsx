@@ -12,7 +12,7 @@ import { Redirect } from "react-router";
 const WeatherContainer = () => {
   const uid = useSelector((state) => state.firebase.auth.uid);
   if (!uid) {
-    return <Redirect to="signin" />;
+    return <Redirect to="/signin" />;
   } else {
     return (
       <WeatherWrapper>
