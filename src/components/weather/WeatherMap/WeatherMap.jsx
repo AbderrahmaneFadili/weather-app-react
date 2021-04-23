@@ -22,7 +22,7 @@ const WeatherMap = () => {
   return (
     <WeatherMapWrapper>
       {loading && <Loader />}
-      {currentWeather && (
+      {currentWeather !== null && currentWeather.message === undefined && (
         <MapContainer
           style={{ width: "100%", height: "100%" }}
           center={[currentWeather.coord.lat, currentWeather.coord.lon]}

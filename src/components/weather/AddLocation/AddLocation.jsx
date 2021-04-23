@@ -15,7 +15,7 @@ const AddLocation = () => {
     event.preventDefault();
     if (cityName) {
       dispatch(getCurrentWeatherByCity(cityName));
-      dispatch(addLocation(cityName));
+
       setCityName("");
     } else {
       alert("Please enter the city name");

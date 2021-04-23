@@ -19,7 +19,7 @@ import Loader from "../../layout/Loader/Loader";
 
 const WeatherCard = () => {
   //selector for selecting data from reducers
-  const { loading, currentWeather } = useSelector(
+  const { loading, currentWeather, error } = useSelector(
     (state) => state.currentWeatherReducer,
   );
 
@@ -39,11 +39,11 @@ const WeatherCard = () => {
       { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 },
     );
   }, [dispatch]);
-
+  console.log(currentWeather);
   return (
     <WeatherCardWrapper>
       {loading && <Loader />}
-      {currentWeather && (
+      {currentWeather !== null && currentWeather.message === undefined && (
         <>
           <WeatherDate>
             {moment(new Date(currentWeather.dt * 1000)).format(

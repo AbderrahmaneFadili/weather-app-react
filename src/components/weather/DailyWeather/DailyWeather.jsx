@@ -12,10 +12,11 @@ const DailyWeather = () => {
   }));
 
   const dispatch = useDispatch();
-  const { currentWeather, loading } = currentWeatherResult;
+  const { currentWeather, loading, error } = currentWeatherResult;
+  const { dailyWeather } = dailyWeahterResult;
 
   useEffect(() => {
-    if (currentWeather !== null) {
+    if (currentWeather && currentWeather.coord !== undefined) {
       dispatch(
         getDailyWeatherByCoords(
           currentWeather.coord.lat,
@@ -23,14 +24,14 @@ const DailyWeather = () => {
         ),
       );
     }
-  }, [currentWeather, dispatch]);
+  }, [currentWeather]);
 
-  const { dailyWeather } = dailyWeahterResult;
-
+  console.log(dailyWeather);
   return (
     <DailyWeatherWrapper>
       {loading && <Loader />}
       {dailyWeather &&
+        currentWeather &&
         !loading &&
         dailyWeather.map((dw, i) => (
           <DailyWeatherCard {...dw} key={i.toString()} />

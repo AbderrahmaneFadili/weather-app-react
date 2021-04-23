@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 export const addLocation = (locationName) => (
   dispatch,
   getState,
@@ -7,7 +8,10 @@ export const addLocation = (locationName) => (
   const authorId = getState().firebase.auth.uid;
   firestore
     .collection("WeatherLocations")
-    .add({ locationName })
+    .doc(uuidv4())
+    .set({
+      locationName,
+    })
     .then(() => console.log("Location Added"))
     .catch(() => console.error("Adding location error"));
 };

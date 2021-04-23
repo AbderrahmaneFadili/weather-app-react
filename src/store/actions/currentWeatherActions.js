@@ -5,6 +5,7 @@ import {
 } from "../types/currentWeatherTypes";
 
 import { currentWeatherUrl } from "../../api/endPoints";
+import { addLocation } from "./locationsActions";
 
 //get current weather start
 export function getCurrentWeatherStart() {
@@ -34,7 +35,10 @@ export const getCurrentWeatherByCity = (city) => (dispatch) => {
   dispatch(getCurrentWeatherStart());
   fetch(`${currentWeatherUrl}&q=${city}`)
     .then((res) => res.json())
-    .then((data) => dispatch(getCurrentWeatherSucc(data)))
+    .then((data) => {
+      dispatch(getCurrentWeatherSucc(data));
+      dispatch(addLocation(data.name));
+    })
     .catch((err) => dispatch(getCurrentWeatherFail(err)));
 };
 
