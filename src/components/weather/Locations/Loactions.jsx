@@ -9,7 +9,13 @@ import Location from "../Location/Location";
 import { useFirestoreConnect } from "react-redux-firebase";
 
 const Loactions = () => {
-  useFirestoreConnect(["WeatherLocations"]);
+  const uid = useSelector((state) => state.firebase.auth.uid);
+  useFirestoreConnect(() => {
+    return {
+      collection: "WeatherLocations",
+      where: ["authorId", "==", uid],
+    };
+  });
   const locations = useSelector(
     (state) => state.firestore.ordered.WeatherLocations,
   );

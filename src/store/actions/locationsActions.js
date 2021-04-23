@@ -11,6 +11,7 @@ export const addLocation = (locationName) => (
     .doc(uuidv4())
     .set({
       locationName,
+      authorId: authorId,
     })
     .then(() => console.log("Location Added"))
     .catch(() => console.error("Adding location error"));
