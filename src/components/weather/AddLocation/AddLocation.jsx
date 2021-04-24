@@ -8,28 +8,19 @@ const AddLocation = () => {
   const { currentWeather } = useSelector(
     (state) => state.currentWeatherReducer,
   );
-
-  useEffect(() => {
-    if (
-      currentWeather &&
-      currentWeather.message === undefined &&
-      cityName !== ""
-    ) {
-      dispatch(addLocation(cityName));
-    }
-  }, [currentWeather]);
+  //dispatch for dispatch action
 
   const [cityName, setCityName] = useState("");
 
-  const handleCityNameValue = ({ target: { value } }) => setCityName(value);
-
-  //dispatch for dispatch action
   const dispatch = useDispatch();
+
+  const handleCityNameValue = ({ target: { value } }) => setCityName(value);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (cityName) {
       dispatch(getCurrentWeatherByCity(cityName));
+      dispatch(addLocation(cityName));
       setCityName("");
     } else {
       alert("Please enter the city name");
@@ -44,7 +35,7 @@ const AddLocation = () => {
           placeholder="Add Location..."
           value={cityName}
         />
-        <Button type="submit">Add location</Button>
+        <Button type="submit">Add</Button>
       </Form>
     </AddLocationWrapper>
   );

@@ -30,7 +30,6 @@ const SignIn = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = values;
-    console.log(email, password);
     dispatch(signIn({ email, password }));
   };
 

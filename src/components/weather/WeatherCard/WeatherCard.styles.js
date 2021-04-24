@@ -5,6 +5,11 @@ export const WeatherCardWrapper = styled.div`
   background: var(--light-gray);
   color: var(--dark-gray);
   padding: 1rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const WeatherDate = styled.span`
@@ -22,11 +27,20 @@ export const Name = styled.span`
 export const TemperatureContainer = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const TemperatureImage = styled.img`
   position: relative;
   left: -10px;
+  @media screen and (max-width: 1000px) {
+    left: initial;
+  }
 `;
 
 export const Temperature = styled.span`
@@ -34,6 +48,9 @@ export const Temperature = styled.span`
   position: relative;
   left: -17px;
   font-weight: bold;
+  @media screen and (max-width: 1000px) {
+    left: initial;
+  }
 `;
 
 export const WeatherInfo = styled.div`
@@ -43,6 +60,9 @@ export const WeatherInfo = styled.div`
 
 export const WeatherInfoItem = styled.p`
   margin-bottom: 0.2rem;
+  @media screen and (max-width: 1000px) {
+    font-size: 0.7rem;
+  }
 `;
 
 export const Info = styled.span`

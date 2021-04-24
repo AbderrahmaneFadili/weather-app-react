@@ -29,7 +29,7 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = values;
-    console.log(email, password);
+
     dispatch(signUp({ email, password }));
   };
 

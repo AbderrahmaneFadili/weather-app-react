@@ -39,7 +39,7 @@ const WeatherCard = () => {
       { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 },
     );
   }, [dispatch]);
-  console.log(currentWeather);
+
   return (
     <WeatherCardWrapper>
       {loading && <Loader />}

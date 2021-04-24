@@ -5,7 +5,6 @@ import {
 } from "../types/currentWeatherTypes";
 
 import { currentWeatherUrl } from "../../api/endPoints";
-import { addLocation } from "./locationsActions";
 
 //get current weather start
 export function getCurrentWeatherStart() {

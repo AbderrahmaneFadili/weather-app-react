@@ -18,7 +18,6 @@ const WeatherMap = () => {
     (state) => state.currentWeatherReducer,
   );
 
-  console.log(loading, currentWeather, error);
   return (
     <WeatherMapWrapper>
       {loading && <Loader />}

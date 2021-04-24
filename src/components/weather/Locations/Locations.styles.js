@@ -8,6 +8,11 @@ export const LoactionsWrapper = styled.div`
   height: 340px;
   overflow: auto;
 
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
   &::-webkit-scrollbar {
     width: 0.5rem;
   }

@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import { Container } from "../../../themes/GlobalStyle";
 
 export const HeaderContiner = styled.header`
-  padding: 3rem 0;
+  padding: 2rem 0;
   background-image: url(${imageBgSM});
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
-  height: 24vh;
+  height: 50vh;
   position: relative;
 
   &::after {
@@ -25,11 +25,16 @@ export const HeaderContiner = styled.header`
 
   @media screen and (min-width: 768px) {
     background-image: url(${imageBgLG});
+    height: 26vh;
   }
 `;
 
 export const Logo = styled(Link)`
   text-decoration: none;
+
+  @media screen and (max-width: 768px) {
+    margin: 1rem auto;
+  }
 `;
 
 export const HeaderHeading = styled.h1`

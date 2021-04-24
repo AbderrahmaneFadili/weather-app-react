@@ -39,4 +39,10 @@ export const Button = styled.button`
     color: var(--dark-gray);
     border-color: var(--dark-gray);
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 0.8rem;
+
+    overflow: hidden;
+  }
 `;

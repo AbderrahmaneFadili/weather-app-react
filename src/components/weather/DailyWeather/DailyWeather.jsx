@@ -27,7 +27,6 @@ const DailyWeather = () => {
   const dailyWeahterResult = useSelector((state) => state.dailyWeahterReducer);
   const { dailyWeather, loading } = dailyWeahterResult;
 
-  console.log(dailyWeather, currentWeather);
   return (
     <DailyWeatherWrapper>
       {loading && <Loader />}
