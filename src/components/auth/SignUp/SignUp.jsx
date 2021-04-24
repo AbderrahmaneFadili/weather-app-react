@@ -3,14 +3,14 @@ import { SignUpWrapper, Title } from "./SignUp.styles";
 import Form from "../Form/Form";
 import FormInput from "../FormInput/FormInput";
 import SubmitButton from "../SubmitButton/SubmitButton";
-import Error from "../Error/Error";
 import { useDispatch, useSelector } from "react-redux";
 import { signUp } from "../../../store/actions/authActions";
 import { Redirect } from "react-router";
+import Error from "../Error/Error";
 
 const SignUp = () => {
   //selector
-  const errorMessage = useSelector((state) => state.authData.errorMessage);
+  const { signupError } = useSelector((state) => state.authData);
   const uid = useSelector((state) => state.firebase.auth.uid);
   const dispatch = useDispatch();
 
@@ -55,7 +55,7 @@ const SignUp = () => {
             value={values.password}
           />
           <SubmitButton type="submit">Sign Up</SubmitButton>
-          <Error>{errorMessage && errorMessage}</Error>
+          <Error>{signupError && signupError}</Error>
         </Form>
       </SignUpWrapper>
     );

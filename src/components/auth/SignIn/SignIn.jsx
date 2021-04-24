@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Error from "../Error/Error";
 import Form from "../Form/Form";
 import FormInput from "../FormInput/FormInput";
 import SubmitButton from "../SubmitButton/SubmitButton";
 import { SignInWrapper, Title } from "./SignIn.styles";
 import { signIn } from "../../../store/actions/authActions";
 import { Redirect } from "react-router";
+import Error from "../Error/Error";
 
 const SignIn = () => {
   //selector
-  const errorMessage = useSelector((state) => state.authData.errorMessage);
+  const { signinError } = useSelector((state) => state.authData);
   const uid = useSelector((state) => state.firebase.auth.uid);
 
   const dispatch = useDispatch();
@@ -56,7 +56,7 @@ const SignIn = () => {
             placeholder="Password..."
           />
           <SubmitButton type="submit">Sign In</SubmitButton>
-          <Error>{errorMessage && errorMessage}</Error>
+          <Error>{signinError && signinError}</Error>
         </Form>
       </SignInWrapper>
     );

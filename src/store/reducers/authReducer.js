@@ -6,7 +6,8 @@ import {
 } from "../types/authTypes";
 
 const initialState = {
-  errorMessage: "",
+  signupError: "",
+  signinError: "",
 };
 
 const authReducer = (state = initialState, { type, payload }) => {
@@ -14,22 +15,26 @@ const authReducer = (state = initialState, { type, payload }) => {
     case SIGN_IN_SUCCESS:
       return {
         ...state,
-        errorMessage: null,
+        signupError: "",
+        signinError: "",
       };
     case SIGN_UP_SUCCESS:
       return {
         ...state,
-        errorMessage: null,
+        signupError: "",
+        signinError: "",
       };
     case SIGN_IN_ERROR:
       return {
         ...state,
-        errorMessage: payload.message,
+        signinError: payload.message,
+        signupError: "",
       };
     case SIGN_UP_ERROR:
       return {
         ...state,
-        errorMessage: payload.message,
+        signupError: payload.message,
+        signinError: "",
       };
     default:
       return state;

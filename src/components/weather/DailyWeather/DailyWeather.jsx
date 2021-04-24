@@ -22,7 +22,7 @@ const DailyWeather = () => {
         ),
       );
     }
-  }, [currentWeather]);
+  }, [currentWeather, dispatch]);
 
   const dailyWeahterResult = useSelector((state) => state.dailyWeahterReducer);
   const { dailyWeather, loading } = dailyWeahterResult;

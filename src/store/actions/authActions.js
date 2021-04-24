@@ -1,5 +1,6 @@
 import {
   SIGN_IN_ERROR,
+  SIGN_IN_SUCCESS,
   SIGN_UP_ERROR,
   SIGN_UP_SUCCESS,
 } from "../types/authTypes";
@@ -9,8 +10,11 @@ export const signIn = (user) => (dispatch, getState, getFirebase) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(user.email, user.password)
-    .then(() => dispatch({ type: SIGN_UP_SUCCESS }))
-    .catch((error) => dispatch({ type: SIGN_IN_ERROR, payload: error }));
+    .then(() => dispatch({ type: SIGN_IN_SUCCESS }))
+    .catch((error) => {
+      console.log(error);
+      dispatch({ type: SIGN_IN_ERROR, payload: error });
+    });
 };
 
 export const signUp = (user) => (dispatch, getState, getFirebase) => {
@@ -21,7 +25,10 @@ export const signUp = (user) => (dispatch, getState, getFirebase) => {
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then(() => dispatch({ type: SIGN_UP_SUCCESS }))
-    .catch((error) => dispatch({ type: SIGN_UP_ERROR, payload: error }));
+    .catch((error) => {
+      console.log(error);
+      dispatch({ type: SIGN_UP_ERROR, payload: error });
+    });
 };
 
 export const signOut = () => (dispatch, getState, getFirebase) => {

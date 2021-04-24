@@ -14,7 +14,7 @@ const WeatherMap = () => {
   });
 
   // //selector for selecting data from reducers
-  const { loading, currentWeather, error } = useSelector(
+  const { loading, currentWeather } = useSelector(
     (state) => state.currentWeatherReducer,
   );
 

@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { AddLocationWrapper, Button, Form, Input } from "./AddLocation.styles";
 import { getCurrentWeatherByCity } from "../../../store/actions/currentWeatherActions";
 import { addLocation } from "../../../store/actions/locationsActions";
 const AddLocation = () => {
-  //selector
-  const { currentWeather } = useSelector(
-    (state) => state.currentWeatherReducer,
-  );
   //dispatch for dispatch action
 
   const [cityName, setCityName] = useState("");
