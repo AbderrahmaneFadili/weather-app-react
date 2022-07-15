@@ -19,6 +19,8 @@ const Loactions = () => {
   const locations = useSelector(
     (state) => state.firestore.ordered.WeatherLocations,
   );
+
+  console.log("locations : ", locations);
   return (
     <LoactionsWrapper>
       <Title>Locations</Title>
