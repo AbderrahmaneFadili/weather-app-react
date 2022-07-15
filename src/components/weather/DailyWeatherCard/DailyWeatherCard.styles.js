@@ -6,6 +6,11 @@ export const DailyWeatherCardWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
+  @media screen and (max-width: 992px) {
+    margin-top: 2rem;
+    width: 30%;
+  }
+
   @media screen and (max-width: 768px) {
     margin-bottom: 1rem;
   }

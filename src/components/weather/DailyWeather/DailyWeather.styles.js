@@ -9,7 +9,13 @@ export const DailyWeatherWrapper = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 
+  @media screen and (max-width: 992px) {
+    justify-content: flex-start;
+  }
+
   @media screen and (max-width: 768px) {
+    justify-content: center;
     flex-direction: column;
+    align-items: center;
   }
 `;

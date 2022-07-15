@@ -11,7 +11,7 @@ const DailyWeatherCard = ({ dt, weather, temp: { min, max } }) => {
   return (
     <DailyWeatherCardWrapper>
       <DailyWeatherDate>
-        {moment(new Date(dt * 1000)).format("MMM D, YY")}
+        {moment(new Date(dt * 1000)).format("dddd")}
       </DailyWeatherDate>
       <DailyWeatherIcon
         src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
