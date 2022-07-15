@@ -14,6 +14,10 @@ export const WeatherCardWrapper = styled.div`
 
 export const WeatherDate = styled.span`
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Name = styled.span`
@@ -22,12 +26,15 @@ export const Name = styled.span`
   font-weight: bold;
   display: block;
   margin: 0.7rem 0;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 export const TemperatureContainer = styled.div`
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
 
   @media screen and (max-width: 1000px) {
     flex-direction: column;
@@ -38,8 +45,13 @@ export const TemperatureContainer = styled.div`
 export const TemperatureImage = styled.img`
   position: relative;
   left: -10px;
+
   @media screen and (max-width: 1000px) {
     left: initial;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 140px;
   }
 `;
 
@@ -48,8 +60,13 @@ export const Temperature = styled.span`
   position: relative;
   left: -17px;
   font-weight: bold;
+
   @media screen and (max-width: 1000px) {
     left: initial;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 4rem;
   }
 `;
 
@@ -60,8 +77,13 @@ export const WeatherInfo = styled.div`
 
 export const WeatherInfoItem = styled.p`
   margin-bottom: 0.2rem;
+
   @media screen and (max-width: 1000px) {
     font-size: 0.7rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.4rem;
   }
 `;
 

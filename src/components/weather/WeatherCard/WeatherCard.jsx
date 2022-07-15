@@ -47,7 +47,7 @@ const WeatherCard = () => {
         <>
           <WeatherDate>
             {moment(new Date(currentWeather.dt * 1000)).format(
-              "MMM D ,YY hh:mm a",
+              "MMMM D  YYYY, hh:mm a",
             )}
           </WeatherDate>
           <Name>{currentWeather.name}</Name>
@@ -55,6 +55,7 @@ const WeatherCard = () => {
             <TemperatureImage
               src={`http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`}
             />
+
             <Temperature>{Math.floor(currentWeather.main.temp)}°C</Temperature>
           </TemperatureContainer>
           <WeatherInfo>
